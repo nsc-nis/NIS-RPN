@@ -98,7 +98,7 @@
                         <Font name="System Bold" size="37.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action_number" prefHeight="105.0" prefWidth="171.0" style="-fx-background-color: grey; -fx-border-color: black; -fx-border-width: 2;" text="." GridPane.rowIndex="3">
+                  <Button mnemonicParsing="false" onAction="#action_point" prefHeight="105.0" prefWidth="171.0" style="-fx-background-color: grey; -fx-border-color: black; -fx-border-width: 2;" text="," GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="37.0" />
                      </font>
@@ -157,7 +157,7 @@
                               <Font name="System Bold" size="37.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#action_number" prefHeight="134.0" prefWidth="110.0" style="-fx-background-color: lightgrey; -fx-border-color: grey;" text="÷" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#action_divide" prefHeight="134.0" prefWidth="110.0" style="-fx-background-color: lightgrey; -fx-border-color: grey;" text="÷" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="37.0" />
                            </font>

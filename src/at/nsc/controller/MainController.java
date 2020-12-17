@@ -63,7 +63,7 @@ public class MainController implements Initializable
     }
 
     @FXML
-    private void action_number(ActionEvent event) throws InterruptedException {
+    private void action_number(ActionEvent event) {
 
         Object node = event.getSource();
         Button button = (Button)node;
@@ -77,18 +77,27 @@ public class MainController implements Initializable
     @FXML
     private void action_enter()
     {
-        String result = values.toString();
-        model.pushToStack(result);
-        values.delete(0, values.length());
-        inputs.delete(0, inputs.length());
-        listView_operations.setItems(model.getObservableList());
-        label_input.setText("");
+        if (inputs.isEmpty())
+        {
+            double result = model.calculate();
+            label_input.setText(String.format("%f", result));
+            clear();
+        }
+        else
+        {
+            String result = values.toString();
+            model.pushToStack(result);
+            values.delete(0, values.length());
+            inputs.delete(0, inputs.length());
+            listView_operations.setItems(model.getObservableList());
+            label_input.setText("");
+        }
     }
 
     @FXML
     private void action_C()
     {
-        inputs.delete(indexOfSB, indexOfSB);
+        inputs.deleteCharAt(indexOfSB);
         label_input.setText(inputs.toString());
     }
 
@@ -96,16 +105,45 @@ public class MainController implements Initializable
     private void action_clear()
     {
         label_input.setText("");
-        values.delete(0, values.length());
-        inputs.delete(0, inputs.length());
-        model.clearStack();
-        listView_operations.setItems(model.getObservableList());
-
+        clear();
     }
+
+    @FXML
+    private void action_point(ActionEvent event)
+    {
+        Object node = event.getSource();
+        Button button = (Button)node;
+
+        inputs.append(button.getText());
+        indexOfSB = inputs.indexOf(button.getText());
+        values.append(".");
+        label_input.setText(inputs.toString());
+    }
+
+     @FXML
+     private void action_divide(ActionEvent event)
+     {
+         Object node = event.getSource();
+         Button button = (Button)node;
+
+         inputs.append(button.getText());
+         indexOfSB = inputs.indexOf(button.getText());
+         values.append("/");
+         label_input.setText(inputs.toString());
+     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         values = model.getStringBuilder();
+        listView_operations.setItems(model.getObservableList());
+    }
+
+    public void clear()
+    {
+        values.delete(0, values.length());
+        inputs.delete(0, inputs.length());
+        model.clearStack();
         listView_operations.setItems(model.getObservableList());
     }
 }
