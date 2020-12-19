@@ -34,6 +34,7 @@ public class Model
     public void  clearStack()
     {
         stack.clear();
+        list_numbers.clear();
     }
 
     public String getOperator()
