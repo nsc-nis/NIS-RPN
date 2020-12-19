@@ -19,12 +19,6 @@ public class Model
     private StringBuilder stringBuilder = new StringBuilder();
     private ArrayList<Double> list_numbers = new ArrayList<Double>();
 
-    public double getValue()
-    {
-        double value = Double.parseDouble(stack.pop());
-        return value;
-    }
-
     public ObservableList<String> getObservableList() {
         List<String> strings = new ArrayList<>(stack);
         Collections.reverse(strings);
@@ -35,11 +29,6 @@ public class Model
     {
         stack.clear();
         list_numbers.clear();
-    }
-
-    public String getOperator()
-    {
-        return stack.pop();
     }
 
     public void pushToStack(String value)
@@ -102,18 +91,32 @@ public class Model
 
     private double multiply(double result)
     {
-        for (int i = 0; i < list_numbers.size(); i++)
+        try
         {
-            result = result * list_numbers.get(i);
+            for (int i = 0; i < list_numbers.size(); i++)
+            {
+                result = list_numbers.get(i) * list_numbers.get(i+1);
+            }
+        }
+        catch (Exception exception)
+        {
+
         }
         return result;
     }
 
     private double divide(double result)
     {
-        for (int i = 0; i < list_numbers.size(); i++)
+        try
         {
-            result = result / list_numbers.get(i);
+            for (int i = 0; i < list_numbers.size(); i++)
+            {
+                result = list_numbers.get(i) / list_numbers.get(i+1);
+            }
+        }
+        catch (Exception exception)
+        {
+
         }
         return result;
     }

@@ -19,7 +19,7 @@ import java.util.*;
 
 /**NIS RPN - Controller
  * @author Niklas Schachl
- * @version 1.0, 10.12.2020
+ * @version 1.0, 19.12.2020
  */
 public class MainController implements Initializable
 {
@@ -39,7 +39,7 @@ public class MainController implements Initializable
     {
         try
         {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/at/nsc/view/view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("/at/nsc/view/mainView.fxml"));
             Parent root = fxmlLoader.load();
 
             //get controller which is connected to this fxml file
@@ -130,6 +130,12 @@ public class MainController implements Initializable
          indexOfSB = inputs.indexOf(button.getText());
          values.append("/");
          label_input.setText(inputs.toString());
+     }
+
+     @FXML
+     private void action_about()
+     {
+        AboutController.show(stage);
      }
 
     @Override
