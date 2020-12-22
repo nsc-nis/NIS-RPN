@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 /**NIS RPN - Controller
  * @author Niklas Schachl
- * @version 1.0, 19.12.2020
+ * @version 1.1, 22.12.2020
  */
 public class AboutController
 {

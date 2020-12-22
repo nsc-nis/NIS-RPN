@@ -27,7 +27,7 @@
          </VBox.margin>
       </Label>
       <Label prefHeight="25.0" prefWidth="391.0" text=" An RPN (Reverse Polish Notation) version of the NSC Calculator" />
-      <Label text="Version: 1.0" />
+      <Label text="Version: 1.1" />
       <Label text="Copyright (C) 2020 NSC IT Solutions" />
       <Button mnemonicParsing="false" onAction="#action_close" prefHeight="28.0" prefWidth="71.0" text="Close">
          <VBox.margin>

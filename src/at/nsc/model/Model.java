@@ -11,7 +11,7 @@ import java.util.Stack;
 
 /**NIS RPN - Controller
  * @author Niklas Schachl
- * @version 1.0, 10.12.2020
+ * @version 1.1, 22.12.2020
  */
 public class Model
 {
@@ -69,6 +69,20 @@ public class Model
             }
         }
         return result;
+    }
+
+    public String getFirstStack()
+    {
+        return stack.pop();
+    }
+
+    public void interchange()
+    {
+        String top = getFirstStack();
+        String bottom = getFirstStack();
+
+        pushToStack(top);
+        pushToStack(bottom);
     }
 
     private double plus(double result)

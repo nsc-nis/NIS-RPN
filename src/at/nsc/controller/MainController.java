@@ -19,7 +19,7 @@ import java.util.*;
 
 /**NIS RPN - Controller
  * @author Niklas Schachl
- * @version 1.0, 19.12.2020
+ * @version 1.1, 22.12.2020
  */
 public class MainController implements Initializable
 {
@@ -142,6 +142,22 @@ public class MainController implements Initializable
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         values = model.getStringBuilder();
+        listView_operations.setItems(model.getObservableList());
+    }
+
+    @FXML
+    public void action_reverse()
+    {
+        double reverse = Double.parseDouble(model.getFirstStack());
+        double result = 1 / reverse;
+        label_input.setText(String.format("%f", result));
+        clear();
+    }
+
+    @FXML
+    public void action_interchange()
+    {
+        model.interchange();
         listView_operations.setItems(model.getObservableList());
     }
 
